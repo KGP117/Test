@@ -3,21 +3,60 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Testing Website</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
 </head>
 
 <body>
-  Hello world
-  <script src="script.js"></script>
+  <header>
+    <a href="#" class="logo">Logo</a>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Work</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </header>
+  <section>
+    <img src="stars.png" id="stars">
+    <img src="moon.png" id="moon">
+    <img src="mountains_behind.png" id="mountains_behind">
+    <h2 id="text">Moon Light</h2>
+    <a href="#sec" id="btn">Explore</a>
+    <img src="mountains_front.png" id="mountains_front">
+  </section>
+  <div class="sec" id="sec">
+    <h2>Parallax Scrolling Effects</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, magnam? Repellat qui quas debitis earum cupiditate, aliquam culpa est placeat molestiae repellendus praesentium cumque assumenda explicabo ducimus eos voluptatum eum!<br><br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, magnam? Repellat qui quas debitis earum cupiditate, aliquam culpa est placeat molestiae repellendus praesentium cumque assumenda explicabo ducimus eos voluptatum eum!<br><br>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, magnam? Repellat qui quas debitis earum cupiditate, aliquam culpa est placeat molestiae repellendus praesentium cumque assumenda explicabo ducimus eos voluptatum eum!<br><br></p>
+  </div>
 
-  <!--
-  This script places a badge on your repl's full-browser view back to your repl's cover
-  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-  teal, blue, blurple, magenta, pink!
-  -->
-  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+  <script>
+    let stars = document.getElementById('stars');
+    let moon = document.getElementById('moon');
+    let mountains_behind = document.getElementById('mountains_behind');
+    let text = document.getElementById('text');
+    let btn = document.getElementById('btn')
+    let mountains_front = document.getElementById('mountains_front');
+    let header = document.getElementById('header');
+
+    window.addEventListener('scroll', function(){
+      let value = window.scrollY;
+      stars.style.left = value * 0.25 + 'px';
+      moon.style.top = value * 1.05 + 'px';
+      mountains_behind.style.top = value * 0.5 + 'px';
+      mountains_front.style.top = value * 0 + 'px';
+      text.style.marginRight = value * 4 + 'px';
+      text.style.marginTop = value * 1.5 + 'px';
+      btn.style.marginTop = value * 1.5 + 'px';
+      header.style.marginTop = value * 0.5 + 'px';
+    })
+  </script>
+  
 </body>
 
 </html>
